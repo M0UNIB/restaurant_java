@@ -29,13 +29,13 @@ public class ClientView extends JFrame {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
-        // Header
+        
         JLabel header = new JLabel("Bonjour " + user.getPrenom() + " ! Que souhaitez-vous faire ?",
                 SwingConstants.CENTER);
         header.setFont(new Font("SansSerif", Font.BOLD, 14));
         panel.add(header, BorderLayout.NORTH);
 
-        // Menu browser
+        
         JPanel menuPanel = new JPanel(new BorderLayout(5, 5));
         menuPanel.setBorder(BorderFactory.createTitledBorder("Parcourir le Menu"));
 
