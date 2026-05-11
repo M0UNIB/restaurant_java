@@ -12,7 +12,6 @@ public class CommandeController {
     private final LigneCommandeDAO ligneCommandeDAO = new LigneCommandeDAO();
     private final FactureDAO       factureDAO       = new FactureDAO();
 
-    /** Client / Serveur — place a new order with its lines */
     public Commande passerCommande(int utilisateurId, List<LigneCommande> lignes) {
         Commande commande = new Commande();
         commande.setUtilisateurId(utilisateurId);
@@ -25,28 +24,23 @@ public class CommandeController {
         return commande;
     }
 
-    /** Cuisinier — start processing */
     public void commencerTraitement(int commandeId) {
         commandeDAO.updateEtat(commandeId, EtatCommande.EN_COURS);
     }
 
-    /** Cuisinier — mark ready (notifies serveur) */
     public void marquerPrete(int commandeId) {
         commandeDAO.updateEtat(commandeId, EtatCommande.PRETE);
         System.out.println("[Notification] Commande #" + commandeId + " est prête !");
     }
 
-    /** Cuisinier — cancel */
     public void annulerTraitement(int commandeId) {
         commandeDAO.updateEtat(commandeId, EtatCommande.ANNULEE);
     }
 
-    /** Serveur — mark served */
     public void marquerServie(int commandeId) {
         commandeDAO.updateEtat(commandeId, EtatCommande.SERVIE);
     }
 
-    /** Serveur — generate invoice for a served order */
     public Facture genererFacture(int commandeId) {
         List<LigneCommande> lignes = ligneCommandeDAO.findByCommande(commandeId);
         double total = lignes.stream().mapToDouble(LigneCommande::getSousTotal).sum();

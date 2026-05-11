@@ -12,13 +12,11 @@ import java.util.List;
 public class GestionMenuView extends JFrame {
     private final MenuController menuController = new MenuController();
 
-    // Menu panel
     private final DefaultTableModel menuModel = new DefaultTableModel(new String[]{"ID", "Nom", "Description"}, 0) {
         public boolean isCellEditable(int r, int c) { return false; }
     };
     private final JTable menuTable = new JTable(menuModel);
 
-    // Plats panel
     private final DefaultTableModel platModel = new DefaultTableModel(
             new String[]{"ID", "Nom", "Description", "Prix (DT)", "Menu ID"}, 0) {
         public boolean isCellEditable(int r, int c) { return false; }
@@ -42,7 +40,6 @@ public class GestionMenuView extends JFrame {
         add(tabs);
     }
 
-    // ── Menus tab ───────────────────────────────────────────────────────────────
     private JPanel buildMenuPanel() {
         JPanel panel = new JPanel(new BorderLayout(8, 8));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -98,7 +95,6 @@ public class GestionMenuView extends JFrame {
         return panel;
     }
 
-    // ── Plats tab ────────────────────────────────────────────────────────────────
     private JPanel buildPlatsPanel() {
         JPanel panel = new JPanel(new BorderLayout(8, 8));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

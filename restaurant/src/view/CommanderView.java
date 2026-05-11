@@ -53,7 +53,6 @@ public class CommanderView extends JFrame {
         setLayout(new BorderLayout(8, 8));
         getRootPane().setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // ── Left: menu + plats ──────────────────────────────────────
         JPanel left = new JPanel(new BorderLayout(4, 4));
         left.setBorder(BorderFactory.createTitledBorder("Menu"));
 
@@ -68,7 +67,6 @@ public class CommanderView extends JFrame {
         btnAjouter.addActionListener(e -> ajouterAuPanier());
         left.add(btnAjouter, BorderLayout.SOUTH);
 
-        // ── Right: panier ───────────────────────────────────────────
         JPanel right = new JPanel(new BorderLayout(4, 4));
         right.setBorder(BorderFactory.createTitledBorder("Panier"));
         right.add(new JScrollPane(panierTable), BorderLayout.CENTER);

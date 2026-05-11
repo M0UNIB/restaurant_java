@@ -31,13 +31,11 @@ public class LoginView extends JFrame {
         c.insets = new Insets(6, 6, 6, 6);
         c.fill   = GridBagConstraints.HORIZONTAL;
 
-        // Title
         JLabel title = new JLabel("Système de gestion du restaurant", SwingConstants.CENTER);
         title.setFont(new Font("SansSerif", Font.BOLD, 16));
         c.gridwidth = 2; c.gridx = 0; c.gridy = 0;
         panel.add(title, c);
 
-        // Fields
         c.gridwidth = 1;
         c.gridy = 1; c.gridx = 0; panel.add(new JLabel("Nom d'utilisateur :"), c);
         c.gridx = 1; panel.add(usernameField, c);
@@ -45,12 +43,10 @@ public class LoginView extends JFrame {
         c.gridy = 2; c.gridx = 0; panel.add(new JLabel("Mot de passe :"), c);
         c.gridx = 1; panel.add(passwordField, c);
 
-        // Error label
         errorLabel.setForeground(Color.RED);
         c.gridy = 3; c.gridx = 0; c.gridwidth = 2;
         panel.add(errorLabel, c);
 
-        // Button
         c.gridy = 4;
         panel.add(loginButton, c);
 

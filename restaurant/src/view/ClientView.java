@@ -62,7 +62,6 @@ public class ClientView extends JFrame {
         menuPanel.add(new JScrollPane(table), BorderLayout.CENTER);
         panel.add(menuPanel, BorderLayout.CENTER);
 
-        
         JPanel actions = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 5));
         JButton btnCommander = new JButton("Commander des plats");
         JButton btnCoord     = new JButton("Mes coordonnées");
