@@ -3,6 +3,7 @@ package util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -57,6 +58,23 @@ public class DatabaseConnection {
             return classpathConfig;
         }
 
-        return new FileInputStream(CONFIG_FILE);
+        String[] paths = {
+                CONFIG_FILE,
+                "restaurant/" + CONFIG_FILE,
+                "src/" + CONFIG_FILE,
+                "restaurant/src/" + CONFIG_FILE,
+                "../" + CONFIG_FILE,
+                "../../" + CONFIG_FILE,
+                "../../../" + CONFIG_FILE
+        };
+
+        for (String path : paths) {
+            File config = new File(path);
+            if (config.isFile()) {
+                return new FileInputStream(config);
+            }
+        }
+
+        throw new IOException(CONFIG_FILE + " not found.");
     }
 }
